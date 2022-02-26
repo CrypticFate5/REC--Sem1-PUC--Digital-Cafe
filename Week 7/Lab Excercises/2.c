@@ -143,3 +143,29 @@
 // ·         Using zero based indexing, arr[1]=2 is the pivot between the two subarrays.
 
 // ·         The index of the pivot is 1.
+
+/*
+ * Complete the 'balancedSum' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts INTEGER_ARRAY arr as parameter.
+ */
+
+int balancedSum(int arr_count, int* arr) 
+{
+    int i,j,suml=0,n;
+    for(i=0;i<arr_count;i++){
+        suml+=arr[i];
+        int sumr=0;
+        for(j=2;j<arr_count;j++){
+            sumr+=arr[j];
+        }
+        if(suml==sumr){
+           n=j-2;
+        }
+
+    }
+    return n;
+    
+}
+
