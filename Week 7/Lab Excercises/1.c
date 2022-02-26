@@ -179,4 +179,51 @@
 // The strings that can be formed are 'ddddaddb', 'ddddbdda', 'ddaddddb', 'ddaddbdd', 'ddbdddda', 'ddbddadd'. The alphabetically smallest string is 'ddddaddb'.
 
  
+/*
+ * Complete the 'smallestString' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING_ARRAY substrings as parameter.
+ */
+
+/*
+ * To return the string from the function, you should either do static allocation or dynamic allocation
+ *
+ * For example,
+ * char* return_string_using_static_allocation() {
+ *     static char s[] = "static allocation of string";
+ *
+ *     return s;
+ * }
+ *
+ * char* return_string_using_dynamic_allocation() {
+ *     char* s = malloc(100 * sizeof(char));
+ *
+ *     s = "dynamic allocation of string";
+ *
+ *     return s;
+ * }
+ *
+ */
+ #include <string.h>
+char* smallestString(int substrings_count, char **substrings) {
+    char *s= malloc(100*sizeof(char));
+    for(int i=0;i<substrings_count;i++){
+        for(int j=0;j<substrings_count-i-1;j++){
+            if(strcmp(substrings[j],substrings[j+1])>0){
+                char * temp= malloc(100*sizeof(char));
+                temp=substrings[j];
+                substrings[j]=substrings[j+1];
+                substrings[j+1]=temp;
+            }
+            
+        }  
+    }
+    
+    for(int i=0;i<substrings_count;i++){
+        strcat(s,substrings[i]);
+    }
+    return s;
+
+}
 
